@@ -11,12 +11,12 @@ sigma_seeds = 5
 sigma_watersheds = 1
 ms = 11
 
-files = glob.glob("../data/sample_A/crop/membrane_inv/training_small/*")
+files = glob.glob("/home/thanuja/Dropbox/data/multicut/train/mem_inv_rfc/*")
 files.sort()
 
 #labels = 0 
-if not os.path.isdir("../data/sample_A/crop/fragment/small_w1ms3/"):
-    os.mkdir("../data/sample_A/crop/fragment/small_w1ms3/")
+if not os.path.isdir("/home/thanuja/Dropbox/data/multicut/train/fragments_rfc/"):
+    os.mkdir("/home/thanuja/Dropbox/data/multicut/train/fragments_rfc/")
 
 for i in range(len(files)):
     print("Processing " + files[i])
@@ -37,6 +37,6 @@ for i in range(len(files)):
     #labels += label_offset
     #label_offset += num_seeds
 
-    mh.imsave("../data/sample_A/crop/fragment/small_w1ms3/" + str(i).zfill(5) + ".tif", labels.astype(float))
+    mh.imsave("/home/thanuja/Dropbox/data/multicut/train/fragments_rfc/" + str(i).zfill(5) + ".tif", labels.astype(float))
 
     #mh.imsave("superpixels.tif", labels.astype(float))
