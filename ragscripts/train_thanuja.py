@@ -46,18 +46,18 @@ if __name__ == "__main__":
     tee([
         "cmc_create_project",
         "--forceParentCandidate=false",
-        "--supervoxels=/home/thanuja/DATA/ISBI2012/train/fragments_rfc",
-        "--mergeHistory=/home/thanuja/DATA/ISBI2012/train/mergetree_rfc",
-        "--groundTruth=/home/thanuja/DATA/ISBI2012/train/groundTruthIdx",
-        "--intensities=/home/thanuja/DATA/ISBI2012/train/raw",
-        "--boundaries=/home/thanuja/DATA/ISBI2012/train/mem_inv_rfc",
+        "--supervoxels=/home/thanuja/Dropbox/data/multicut/train/fragments_rfc",
+        "--mergeHistory=/home/thanuja/Dropbox/data/multicut/train/mergetree_rfc",
+        "--groundTruth=/home/thanuja/Dropbox/data/multicut/train/groundTruthIdx",
+        "--intensities=/home/thanuja/Dropbox/data/multicut/train/raw",
+        "--boundaries=/home/thanuja/Dropbox/data/multicut/train/mem_inv_rfc",
         "--2dSupervoxels=true",
         "--resX=4",
         "--resY=4",
         "--resZ=40",
         "--cragType=empty",
         "--maxZLinkBoundingBoxDistance=200",
-        "-p", "/home/thanuja/DATA/ISBI2012/train/rfc.hdf"
+        "-p", "/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf"
     ], "log/create_project.log")
 
     # extract features
@@ -70,19 +70,19 @@ if __name__ == "__main__":
         "--boundariesFeatures=true",
         "--boundariesBoundaryFeatures=true",
         "--noCoordinatesStatistics=true",
-        "-p", "/home/thanuja/DATA/ISBI2012/train/rfc.hdf"
+        "-p", "/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf"
     ], "log/extract_features.log")
 
     # create best-effort
     tee([
         "cmc_train",
         "--forceParentCandidate=false",
-        "-p", "/home/thanuja/DATA/ISBI2012/train/rfc.hdf",
+        "-p", "/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf",
         "--dryRun",
-        "--exportBestEffort=/home/thanuja/DATA/ISBI2012/train/tif/rfc"
+        "--exportBestEffort=/home/thanuja/Dropbox/data/multicut/train/tif/rfc"
     ], "log/extract_best-effort.log")
 
     # train random forest
-    train_rf("/home/thanuja/DATA/ISBI2012/train/rfc.hdf")
+    train_rf("/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf")
 
 

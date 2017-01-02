@@ -17,7 +17,7 @@ def merge_tree(sp_file, membrane_file, region_size_exponent):
 #         "--mergeSmallRegionsFirst",
         "--initialSuperpixels=" + sp_file,
         "-s", membrane_file,
-        "--mergeHistory=/home/vleite/PhD/research/scripts/candidate_mc_scripts/data/training/mergetrees_original1/0000.txt",
+        "--mergeHistory=/home/thanuja/Dropbox/data/multicut/train/mergetree_rfc/0000.txt",
     ])
 
 if __name__ == "__main__":
@@ -36,9 +36,9 @@ if __name__ == "__main__":
 #    for membrane_file in membrane_files:
 #
 #        basename = os.path.basename(membrane_file).strip(".tiff")
-    sp_file = "/home/vleite/PhD/research/scripts/candidate_mc_scripts/data/training/fragments_original1/00000.tif"
+    sp_file = "/home/thanuja/Dropbox/data/multicut/train/fragments_rfc/00000.tif"
 
 #    for region_size_exponent in region_size_exponents:
-    jobs.append(joblib.delayed(merge_tree)(sp_file, "/home/vleite/PhD/research/scripts/candidate_mc_scripts/data/training/membrane/00000.tif", 1))
+    jobs.append(joblib.delayed(merge_tree)(sp_file, "/home/thanuja/Dropbox/data/multicut/train/mem_inv_rfc/000.tif", 1))
 
     joblib.Parallel(n_jobs=20)(jobs)
