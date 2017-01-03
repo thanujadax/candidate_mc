@@ -1,0 +1,8 @@
+../build/binaries/crag_viewer -p ~/Dropbox/data/multicut/train/projectFiles/rfc.hdf --overlay=best-effort
+
+loss functions:
+hausdorff
+overlap
+assignment
+rand
+

@@ -61,7 +61,7 @@ if __name__ == "__main__":
         "--maxZLinkBoundingBoxDistance=200",
         "--project="+projectFile
     ], "log/create_project.log")
-
+   
     # extract features
     tee([
         "cmc_extract_features",
@@ -70,10 +70,10 @@ if __name__ == "__main__":
         "--topologicalFeatures=true",
         "--assignmentFeatures=true",
         "--normalize=true",
-        "--dumpFeatureNames=" + 'rfcProj'
+        "--dumpFeatureNames=" + 'rfcProj',
         "--project="+projectFile
     ], "log/extract_features.log")
-
+   
     # create best-effort
     tee([
         "cmc_train",
@@ -81,13 +81,14 @@ if __name__ == "__main__":
         "--project="+projectFile,
         "--assignmentSolver",
         "--dryRun",
-        "--bestEffortLoss=newLoss",
+        "--bestEffortLoss=rand",
         "--exportBestEffort=/home/thanuja/Dropbox/data/multicut/train/tif/rfc"
     ], "log/extract_best-effort.log")
 
     # train random forest
     train_rf(projectFile)
 
-    tf = datetime.datetime.now()
-    print ("time: ")
-    print (tf-ts)
+    #tf = datetime.datetime.now()
+    #print ("time: ")
+    #print (tf-ts)
+    
