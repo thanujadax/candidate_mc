@@ -86,7 +86,7 @@ if __name__ == "__main__":
     ], "log/extract_best-effort.log")
 
     # train random forest
-    train_rf(projectName)
+    train_rf(projectFile)
 
     tf = datetime.datetime.now()
     print ("time: ")
