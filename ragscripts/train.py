@@ -47,27 +47,27 @@ if __name__ == "__main__":
     projectName = 'train_rf'
 
     ts = datetime.datetime.now()
-#     tee([
-#         "cmc_create_project",
-#         "--mergeHistoryWithScores",
-#         "--maxMerges=8",
-#         "--2dSupervoxels",
-#         "--resX=4",
-#         "--resY=4",
-#         "--resZ=40",
-#         "--cragType=empty",
-#         "--maxZLinkBoundingBoxDistance=400",
-#         "--supervoxels=../01_data_preparation/train_rf/fragments" + sample,
-#         "--mergeHistory=../01_data_preparation/train_rf/mergetrees" + sample,
-#         "--groundTruth=../01_data_preparation/train_rf/groundtruth" + sample,
-#         "--intensities=../01_data_preparation/train_rf/raw" + sample,
-#         "--boundaries=../01_data_preparation/train_rf/membrane" + sample,
-#         "--xAffinities=../01_data_preparation/train_rf/affinities" + sample + "/aff_x",
-#         "--yAffinities=../01_data_preparation/train_rf/affinities" + sample + "/aff_y",
-#         "--zAffinities=../01_data_preparation/train_rf/affinities" + sample + "/aff_z",
-#         "--project=hdf/" + projectName + ".hdf"
-#     ], "log/create_project_" + projectName + ".log")
-#  
+     tee([
+         "cmc_create_project",
+         "--mergeHistoryWithScores",
+         "--maxMerges=8",
+         "--2dSupervoxels",
+         "--resX=4",
+         "--resY=4",
+         "--resZ=40",
+         "--cragType=empty",
+         "--maxZLinkBoundingBoxDistance=400",
+         "--supervoxels=/home/thanuja/Dropbox/data/multicut/train/fragments_rfc" + sample,
+         "--mergeHistory=/home/thanuja/Dropbox/data/multicut/train/mergetree_rfc" + sample,
+         "--groundTruth=/home/thanuja/Dropbox/data/multicut/train/groundTruthIdx" + sample,
+         "--intensities=/home/thanuja/Dropbox/data/multicut/train/raw" + sample,
+         "--boundaries=../01_data_preparation/train_rf/membrane" + sample,
+         "--xAffinities=../01_data_preparation/train_rf/affinities" + sample + "/aff_x",
+         "--yAffinities=../01_data_preparation/train_rf/affinities" + sample + "/aff_y",
+         "--zAffinities=../01_data_preparation/train_rf/affinities" + sample + "/aff_z",
+         "--project=hdf/" + projectName + ".hdf"
+     ], "log/create_project_" + projectName + ".log")
+  
     # extract features
     tee([
         "cmc_extract_features",

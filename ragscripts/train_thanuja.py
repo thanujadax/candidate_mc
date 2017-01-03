@@ -34,7 +34,7 @@ def tee(cmd, log_file = None):
                     line = proc.stderr.readline()
 
 if __name__ == "__main__":
-
+git
     if not os.path.exists("tif"):
         os.mkdir("tif")
     if not os.path.exists("log"):
@@ -43,9 +43,11 @@ if __name__ == "__main__":
         os.mkdir("hdf")
 
     # create project
+    projectFile = "/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf"
     tee([
         "cmc_create_project",
-        "--forceParentCandidate=false",
+        "--mergeHistoryWithScores",
+        "--maxMerges=8",
         "--supervoxels=/home/thanuja/Dropbox/data/multicut/train/fragments_rfc",
         "--mergeHistory=/home/thanuja/Dropbox/data/multicut/train/mergetree_rfc",
         "--groundTruth=/home/thanuja/Dropbox/data/multicut/train/groundTruthIdx",
@@ -57,32 +59,35 @@ if __name__ == "__main__":
         "--resZ=40",
         "--cragType=empty",
         "--maxZLinkBoundingBoxDistance=200",
-        "-p", "/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf"
+        "-p", projectFile
     ], "log/create_project.log")
 
     # extract features
     tee([
         "cmc_extract_features",
-        "--forceParentCandidate=false",
-        "--noVolumeRays=true",
-        "--noSkeletons=true",
+        "--log-level=debug",
+        "--statisticsFeatures=true",
+        "--topologicalFeatures=true",
+        "--assignmentFeatures=true",
         "--normalize=true",
-        "--boundariesFeatures=true",
-        "--boundariesBoundaryFeatures=true",
-        "--noCoordinatesStatistics=true",
-        "-p", "/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf"
+        "--dumpFeatureNames=" + 'rfcProj'
+        "-p", projectFile
     ], "log/extract_features.log")
 
     # create best-effort
     tee([
         "cmc_train",
-        "--forceParentCandidate=false",
-        "-p", "/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf",
+        "--log-level=debug",
+        "-p", projectFile,
+        "--assignmentSolver",
         "--dryRun",
+        "--bestEffortLoss=newLoss",
         "--exportBestEffort=/home/thanuja/Dropbox/data/multicut/train/tif/rfc"
     ], "log/extract_best-effort.log")
 
     # train random forest
-    train_rf("/home/thanuja/Dropbox/data/multicut/train/projectFiles/rfc.hdf")
+    train_rf(projectName)
 
-
+    tf = datetime.datetime.now()
+    print ("time: ")
+    print (tf-ts)
