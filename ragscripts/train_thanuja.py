@@ -59,7 +59,7 @@ if __name__ == "__main__":
         "--resZ=40",
         "--cragType=empty",
         "--maxZLinkBoundingBoxDistance=200",
-        "--project", projectFile
+        "--project="+projectFile
     ], "log/create_project.log")
 
     # extract features
@@ -71,14 +71,14 @@ if __name__ == "__main__":
         "--assignmentFeatures=true",
         "--normalize=true",
         "--dumpFeatureNames=" + 'rfcProj'
-        "--project", projectFile
+        "--project="+projectFile
     ], "log/extract_features.log")
 
     # create best-effort
     tee([
         "cmc_train",
         "--log-level=debug",
-        "--project", projectFile,
+        "--project="+projectFile,
         "--assignmentSolver",
         "--dryRun",
         "--bestEffortLoss=newLoss",
