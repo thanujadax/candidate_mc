@@ -34,7 +34,7 @@ def tee(cmd, log_file = None):
                     line = proc.stderr.readline()
 
 if __name__ == "__main__":
-git
+
     if not os.path.exists("tif"):
         os.mkdir("tif")
     if not os.path.exists("log"):
