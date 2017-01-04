@@ -1,0 +1,39 @@
+name: candidate_mc
+channels: !!python/tuple
+- !!python/unicode
+  'conda-forge'
+- !!python/unicode
+  'defaults'
+dependencies:
+- anaconda::joblib=0.9.4=py27_0
+- anaconda::mercurial=3.9.2=py27_0
+- conda-forge::blas=1.1=openblas
+- conda-forge::freetype=2.6.3=0
+- conda-forge::jpeg=9b=0
+- conda-forge::libtiff=4.0.6=7
+- conda-forge::mahotas=1.4.3=np110py27_1
+- conda-forge::numpy=1.10.4=py27_blas_openblas_205
+- conda-forge::openblas=0.2.19=0
+- conda-forge::pillow=3.4.2=py27_0
+- conda-forge::scipy=0.18.1=np110py27_blas_openblas_201
+- hdf5=1.8.15.1=3
+- icu=54.1=0
+- jbig=2.1=0
+- libgfortran=3.0.0=1
+- libpng=1.6.17=0
+- mkl=11.3.3=0
+- openssl=1.0.2j=0
+- pip=9.0.1=py27_0
+- python=2.7.12=1
+- readline=6.2=2
+- setuptools=27.2.0=py27_0
+- sqlite=3.13.0=0
+- tk=8.5.18=0
+- ukoethe::fftw=3.3.4=1
+- wheel=0.29.0=py27_0
+- xz=5.2.2=0
+- zlib=1.2.8=3
+- pip:
+  - pycmc==0.0.1
+prefix: /home/thanuja/anaconda2/envs/candidate_mc
+
